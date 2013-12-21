@@ -163,6 +163,7 @@
   </fonts>
   <objects name="objects">
     <objects name="MenuSys">
+      <object>objects\Loading1</object>
       <object>objects\MainMenu1</object>
       <object>objects\MainMenu2</object>
       <object>objects\MainMenu3</object>
@@ -187,6 +188,7 @@
   </objects>
   <rooms name="rooms">
     <rooms name="MenuSys">
+      <room>rooms\Loading</room>
       <room>rooms\MainMenu</room>
       <room>rooms\NewGame</room>
       <room>rooms\LoadMenu</room>
