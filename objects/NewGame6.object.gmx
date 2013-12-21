@@ -38,22 +38,52 @@ alpha = 0.75;
 x = room_width/2;
 y = room_height/2;
 
-opt2 = "Start";
+switch(global.qty)
+{
+    case 1:
+        qtext = "        1";
+        break;
+    case 2:
+        qtext = "        2";
+        break;
+    case 3:
+        qtext = "        3";
+        break;
+    case 4:
+        qtext = "        4";
+        break;
+    case 5:
+        qtext = "        5";
+        break;
+    case 6:
+        qtext = "        6";
+        break;
+    case 7:
+        qtext = "        7";
+        break;
+    case 8:
+        qtext = "        8";
+        break; 
+}
 
-w = string_width(opt2)/2;
-h = string_height(opt2)/2;
-hover = MouseOver(x - w + 75, x + w + 75, y - h + 150, y + h + 150);
+opt1 = "&lt;";
 
-if (hover) then alpha = 1.5 else alpha = 0.75
+w = string_width(opt1)/2;
+h = string_height(opt1)/2;
+
+hover = MouseOver(x - w + 70, x + w + 70, y - h, y + h);
+
+if (hover) then alpha = 2.5 else alpha = 0.75
 if (hover) &amp;&amp; mouse_check_button_pressed(mb_left)
     {
-        global.u_size = global.size;
-        global.u_qty = global.qty; 
-        room_goto(Universe);
+       global.qty = global.qty - 1;
+       if global.qty &lt; 1 then global.qty = 8;
     }
+draw_text_color(x - w - 230, y - h, "Number of Bots ", c_white,c_white, c_white, c_white, 0.75);
+draw_text_color(x - w + 70, y - h, opt1, c_white,c_white, c_white, c_white, alpha);
+draw_text_color(x - w + 100, y - h, qtext, c_white,c_white, c_white, c_white, 0.75);
+//draw_text_color(x - w + 70, y - h, opt2, c_white,c_white, c_white, c_white, 0.75);
 
-
-draw_text_color(x - w + 75, y - h + 150, opt2, c_white,c_white, c_white, c_white, alpha);
 </string>
           </argument>
         </arguments>
